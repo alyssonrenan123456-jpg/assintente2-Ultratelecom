@@ -13,7 +13,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DOCS_DIR = "../database/docs"
+# Cria a pasta 'docs' dentro do próprio diretório de trabalho com caminho absoluto seguro
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DOCS_DIR = os.path.join(BASE_DIR, "docs")
 os.makedirs(DOCS_DIR, exist_ok=True)
 
 class QueryRequest(BaseModel):
